@@ -1,50 +1,44 @@
 import React, { useState } from 'react';
-import Nav from './components/Nav'; 
+import Nav from './components/Nav';
 import About from './components/About';
-import Gallery from './components/Gallery' ; 
-import ContactForm from './components/Contact'; 
-import './App.css';
+import Gallery from './components/Gallery';
+import ContactForm from './components/Contact';
+import Footer from './components/Footer'
 
 function App() {
-
-  const [contactSelected, setContactSelected] = useState(false); 
-
-  const [categories] = useState( [
+  const [categories] = useState([
     {
-        name: "commercial", 
-        description: "Photos of grocery stroes, food trucks and other commercial projects", 
-    }, 
-    {  name: "portraits", description: "Portraits of people in mmy life" }, 
-    {name: "food", description: "Delicious delicacies"}, 
-    { 
-        name: "Landscape", 
-        description: "Fields, farmhouses, waterfalls and the beauty of nature", 
-    }, 
-]);  
+      name: 'portfolio',
+      description: 'Portfolio of Coded Projects',
+    },
+  ]);
 
-const [currentCategory, setCurrentCategory] = useState(categories[0]); 
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+  const [contactSelected, setContactSelected] = useState(false);
 
   return (
     <div>
-      <Nav 
+      <Nav
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
-        contactSelected= {contactSelected} 
-        setContactSelected= {setContactSelected}
-        ></Nav>
-      <main> 
-      {!contactSelected ? (
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
+      ></Nav>
+      <main>
+        {!contactSelected ? (
           <>
-        <Gallery currentCategory={currentCategory}></Gallery>
-       <About></About>
-     </>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
         ) : (
           <ContactForm></ContactForm>
-       )}
-
+        )}
       </main>
+      <Footer></Footer>
     </div>
   );
 }
+
 export default App;

@@ -2,8 +2,6 @@ import React from 'react';
 
 function Resume() {
 	return (
-
-
 		<section className='="my-5'>
 			<div className="center">
 				<h1 className="page-header">My Resume</h1>
